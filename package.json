@@ -1,0 +1,31 @@
+{
+  "name": "domradar",
+  "version": "1.0.0",
+  "description": "DomRadar - Agregator ogłoszeń nieruchomości z mapą i alertami",
+  "private": true,
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev --workspace=apps/backend",
+    "dev:frontend": "npm run dev --workspace=apps/frontend",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "lint": "npm run lint --workspaces"
+  },
+  "keywords": [
+    "nieruchomości",
+    "real-estate",
+    "property-search",
+    "olx",
+    "otodom"
+  ],
+  "author": "DomRadar Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

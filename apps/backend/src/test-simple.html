@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Progressive Search Test</title>
+  <style>
+    body { 
+      font-family: monospace; 
+      padding: 20px; 
+      background: #1e1e1e; 
+      color: #d4d4d4; 
+    }
+    h1 { color: #4ec9b0; }
+    button { 
+      padding: 10px 20px; 
+      font-size: 16px; 
+      background: #007acc; 
+      color: white; 
+      border: none; 
+      cursor: pointer; 
+      margin: 10px 0;
+      transition: background 0.3s;
+    }
+    button:hover { background: #005a9e; }
+    button:disabled { background: #666; cursor: not-allowed; }
+    
+    /* Loader styles */
+    .loader {
+      display: none;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .loader.active { display: block; }
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px solid #333;
+      border-top: 4px solid #4ec9b0;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .loader-text {
+      color: #4ec9b0;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    
+    #results { 
+      margin-top: 20px; 
+      border: 1px solid #444; 
+      padding: 10px; 
+      max-height: 500px; 
+      overflow-y: auto; 
+    }
+    .log { 
+      padding: 5px; 
+      margin: 2px 0; 
+      font-size: 12px; 
+      opacity: 0;
+      animation: fadeIn 0.3s forwards;
+    }
+    .start { color: #4ec9b0; }
+    .results { color: #ce9178; }
+    .complete { color: #b5cea8; }
+    .error { color: #f48771; }
+    
+    /* Property card animations */
+    .property { 
+      border: 1px solid #555; 
+      padding: 10px; 
+      margin: 10px 0; 
+      background: #252526;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideIn 0.4s ease-out forwards;
+      border-left: 3px solid #4ec9b0;
+    }
+    .property:hover {
+      background: #2d2d30;
+      border-left-color: #007acc;
+      transform: translateX(5px);
+      transition: all 0.2s;
+    }
+    .property-title { 
+      color: #4ec9b0; 
+      font-weight: bold; 
+      margin-bottom: 5px;
+    }
+    .property-price { 
+      color: #b5cea8; 
+      font-size: 18px; 
+      margin: 5px 0;
+      font-weight: bold;
+    }
+    .property-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-right: 5px;
+    }
+    .badge-olx {
+      background: #002f34;
+      color: #23e5db;
+    }
+    .badge-otodom {
+      background: #5a189a;
+      color: #ffd60a;
+    }
+    
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      to { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
+    }
+    
+    /* Stats styling */
+    #stats {
+      background: #252526;
+      padding: 15px;
+      border-radius: 5px;
+      border-left: 3px solid #007acc;
+    }
+    #stats span {
+      margin-right: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🏠 Progressive Property Search</h1>
+  
+  <div>
+    <label>City: <input type="text" id="city" value="sopot" style="padding: 5px;"></label>
+    <label>Pages: 
+      <select id="pages" style="padding: 5px;">
+        <option value="2">2 pages</option>
+        <option value="3" selected>3 pages</option>
+        <option value="5">5 pages</option>
+      </select>
+    </label>
+    <button onclick="startSearch()">Start Search</button>
+    <button onclick="clearResults()">Clear</button>
+  </div>
+
+  <div id="stats" style="margin: 10px 0; font-size: 14px;">
+    <span id="total">Total: 0</span>
+    <span id="olx">OLX: 0</span>
+    <span id="otodom">Otodom: 0</span>
+    <span id="time">Time: 0s</span>
+  </div>
+
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
+    <div class="loader-text">🔍 Searching properties...</div>
+  </div>
+
+  <div id="results"></div>
+
+  <script>
+    let eventSource = null;
+    let stats = { total: 0, olx: 0, otodom: 0, startTime: 0 };
+    let propertyCount = 0;
+
+    function startSearch() {
+      const city = document.getElementById('city').value;
+      const pages = document.getElementById('pages').value;
+      
+      if (eventSource) {
+        eventSource.close();
+      }
+
+      stats = { total: 0, olx: 0, otodom: 0, startTime: Date.now() };
+      propertyCount = 0;
+      updateStats();
+      
+      // Show loader
+      document.getElementById('loader').classList.add('active');
+      document.getElementById('results').innerHTML = '';
+
+      addLog('start', `Starting search: ${city} (${pages} pages)`);
+
+      const url = `http://localhost:5000/api/properties/search-stream?city=${city}&maxPages=${pages}`;
+      eventSource = new EventSource(url);
+
+      eventSource.onmessage = function(event) {
+        const data = JSON.parse(event.data);
+        handleEvent(data);
+      };
+
+      eventSource.onerror = function() {
+        addLog('error', 'Connection error');
+        document.getElementById('loader').classList.remove('active');
+        eventSource.close();
+      };
+    }
+
+    function handleEvent(data) {
+      switch(data.type) {
+        case 'start':
+          addLog('start', `Search started: ${data.city}`);
+          break;
+
+        case 'property':
+          // Individual property arrives - show immediately!
+          stats.total = data.totalSoFar;
+          stats[data.source]++;
+          updateStats();
+          addProperty(data.property, data.source);
+          break;
+
+        case 'page_complete':
+          addLog('results', `${data.source.toUpperCase()} page ${data.page}: +${data.count} (total: ${data.totalSoFar})`);
+          break;
+
+        case 'source_complete':
+          addLog('complete', `${data.source.toUpperCase()} complete: ${data.totalFromSource} properties`);
+          break;
+
+        case 'complete':
+          addLog('complete', `DONE! Found ${data.total} properties`);
+          document.getElementById('loader').classList.remove('active');
+          eventSource.close();
+          break;
+
+        case 'error':
+          addLog('error', `Error on ${data.source} page ${data.page}: ${data.error}`);
+          break;
+
+        case 'fatal_error':
+          addLog('error', `Fatal error: ${data.error}`);
+          document.getElementById('loader').classList.remove('active');
+          eventSource.close();
+          break;
+      }
+    }
+
+    function addLog(type, message) {
+      const log = document.createElement('div');
+      log.className = `log ${type}`;
+      log.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+      document.getElementById('results').appendChild(log);
+      log.scrollIntoView();
+    }
+
+    function addProperty(prop, source) {
+      propertyCount++;
+      const src = (source || prop.source).toLowerCase();
+      
+      const div = document.createElement('div');
+      div.className = 'property';
+      div.style.animationDelay = `${propertyCount * 0.05}s`; // Staggered animation
+      
+      div.innerHTML = `
+        <div>
+          <span class="property-badge badge-${src}">${src.toUpperCase()}</span>
+          <span style="color: #888; font-size: 11px;">#${propertyCount}</span>
+        </div>
+        <div class="property-title">${prop.title}</div>
+        ${prop.price ? `<div class="property-price">💰 ${prop.price.toLocaleString()} zł</div>` : ''}
+        <div style="color: #d4d4d4; margin-top: 5px;">
+          ${prop.area ? '📐 ' + prop.area + 'm²' : ''} 
+          ${prop.rooms ? '🚪 ' + prop.rooms + ' rooms' : ''}
+        </div>
+        <div style="color: #888; font-size: 11px; margin-top: 5px;">
+          📍 ${prop.city || ''} ${prop.district || ''}
+        </div>
+      `;
+      document.getElementById('results').appendChild(div);
+      div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function updateStats() {
+      document.getElementById('total').textContent = `Total: ${stats.total}`;
+      document.getElementById('olx').textContent = `OLX: ${stats.olx}`;
+      document.getElementById('otodom').textContent = `Otodom: ${stats.otodom}`;
+      
+      const elapsed = ((Date.now() - stats.startTime) / 1000).toFixed(1);
+      document.getElementById('time').textContent = `Time: ${elapsed}s`;
+    }
+
+    function clearResults() {
+      if (eventSource) {
+        eventSource.close();
+      }
+      document.getElementById('loader').classList.remove('active');
+      document.getElementById('results').innerHTML = '';
+      stats = { total: 0, olx: 0, otodom: 0, startTime: 0 };
+      propertyCount = 0;
+      updateStats();
+    }
+
+    // Update stats every second
+    setInterval(updateStats, 1000);
+  </script>
+</body>
+</html>

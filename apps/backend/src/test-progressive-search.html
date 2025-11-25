@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DomRadar - Progressive Search Test</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+    }
+    .search-box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      margin-bottom: 30px;
+    }
+    .search-form {
+      display: flex;
+      gap: 15px;
+      align-items: flex-end;
+    }
+    .form-group {
+      flex: 1;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #333;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border 0.3s;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    button {
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .stats {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+    .stat {
+      flex: 1;
+    }
+    .stat-value {
+      font-size: 2em;
+      font-weight: bold;
+      color: #667eea;
+    }
+    .stat-label {
+      color: #666;
+      margin-top: 5px;
+    }
+    .progress {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    .progress-bar {
+      height: 30px;
+      background: #f0f0f0;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+    .results {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .property-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      animation: slideIn 0.5s ease;
+    }
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .property-card:hover {
+      transform: translateY(-5px);
+    }
+    .property-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #f0f0f0;
+    }
+    .property-content {
+      padding: 15px;
+    }
+    .property-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #333;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+    .property-details {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #666;
+    }
+    .property-price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #667eea;
+      margin-bottom: 5px;
+    }
+    .property-location {
+      font-size: 14px;
+      color: #999;
+    }
+    .source-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .badge-olx {
+      background: #002f34;
+      color: white;
+    }
+    .badge-otodom {
+      background: #ff6b00;
+      color: white;
+    }
+    .log {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      margin-top: 20px;
+      max-height: 300px;
+      overflow-y: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+    }
+    .log-entry {
+      padding: 5px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .log-start { color: #667eea; font-weight: bold; }
+    .log-results { color: #4caf50; }
+    .log-complete { color: #764ba2; font-weight: bold; }
+    .log-error { color: #f44336; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🏠 DomRadar - Progressive Search</h1>
+
+    <div class="search-box">
+      <form class="search-form" id="searchForm">
+        <div class="form-group">
+          <label>Miasto</label>
+          <input type="text" id="cityInput" value="sopot" required>
+        </div>
+        <div class="form-group">
+          <label>Max stron</label>
+          <select id="maxPagesSelect">
+            <option value="3">3 strony (~120 wyników)</option>
+            <option value="5" selected>5 stron (~200 wyników)</option>
+            <option value="10">10 stron (~400 wyników)</option>
+            <option value="15">15 stron (~600 wyników)</option>
+          </select>
+        </div>
+        <button type="submit" id="searchBtn">🔍 Szukaj</button>
+      </form>
+    </div>
+
+    <div class="stats" id="stats" style="display: none;">
+      <div class="stat">
+        <div class="stat-value" id="totalCount">0</div>
+        <div class="stat-label">Wszystkich</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="olxCount">0</div>
+        <div class="stat-label">OLX</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="otodomCount">0</div>
+        <div class="stat-label">Otodom</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="duration">0s</div>
+        <div class="stat-label">Czas</div>
+      </div>
+    </div>
+
+    <div class="progress" id="progressBar" style="display: none;">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%;">
+          <span id="progressText">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="results" id="results"></div>
+
+    <div class="log" id="log"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('searchForm');
+    const searchBtn = document.getElementById('searchBtn');
+    const statsDiv = document.getElementById('stats');
+    const progressBar = document.getElementById('progressBar');
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    const resultsDiv = document.getElementById('results');
+    const logDiv = document.getElementById('log');
+
+    let stats = { total: 0, olx: 0, otodom: 0, startTime: 0 };
+    let eventSource = null;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Close existing connection
+      if (eventSource) {
+        eventSource.close();
+      }
+
+      // Reset
+      stats = { total: 0, olx: 0, otodom: 0, startTime: Date.now() };
+      resultsDiv.innerHTML = '';
+      logDiv.innerHTML = '';
+      statsDiv.style.display = 'flex';
+      progressBar.style.display = 'block';
+      searchBtn.disabled = true;
+
+      const city = document.getElementById('cityInput').value;
+      const maxPages = document.getElementById('maxPagesSelect').value;
+
+      addLog('start', `🚀 Rozpoczynam wyszukiwanie: ${city} (max ${maxPages} stron)`);
+
+      // Connect to SSE endpoint
+      eventSource = new EventSource(`http://localhost:3000/api/properties/search-stream?city=${city}&maxPages=${maxPages}`);
+
+      eventSource.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+
+        switch (data.type) {
+          case 'start':
+            addLog('start', `▶️  Start: ${data.city}`);
+            break;
+
+          case 'results':
+            stats.total = data.totalSoFar;
+            stats[data.source] += data.count;
+            updateStats();
+            updateProgress();
+            
+            // Add properties to DOM
+            data.results.forEach(property => {
+              addPropertyCard(property);
+            });
+
+            addLog('results', `✅ ${data.source.toUpperCase()} strona ${data.page}: +${data.count} (razem: ${data.totalSoFar})`);
+            break;
+
+          case 'source_complete':
+            addLog('complete', `✔️  ${data.source.toUpperCase()} ukończone: ${data.totalFromSource} ogłoszeń`);
+            break;
+
+          case 'complete':
+            addLog('complete', `🎉 ZAKOŃCZONE! Znaleziono ${data.total} ogłoszeń`);
+            eventSource.close();
+            searchBtn.disabled = false;
+            progressFill.style.width = '100%';
+            progressText.textContent = '100%';
+            break;
+
+          case 'error':
+            addLog('error', `❌ ${data.source.toUpperCase()} strona ${data.page}: ${data.error}`);
+            break;
+
+          case 'fatal_error':
+            addLog('error', `💥 Błąd krytyczny: ${data.error}`);
+            eventSource.close();
+            searchBtn.disabled = false;
+            break;
+        }
+      };
+
+      eventSource.onerror = () => {
+        addLog('error', '❌ Połączenie przerwane');
+        eventSource.close();
+        searchBtn.disabled = false;
+      };
+    });
+
+    function updateStats() {
+      document.getElementById('totalCount').textContent = stats.total;
+      document.getElementById('olxCount').textContent = stats.olx;
+      document.getElementById('otodomCount').textContent = stats.otodom;
+      
+      const elapsed = ((Date.now() - stats.startTime) / 1000).toFixed(1);
+      document.getElementById('duration').textContent = `${elapsed}s`;
+    }
+
+    function updateProgress() {
+      const maxPages = parseInt(document.getElementById('maxPagesSelect').value);
+      const estimatedTotal = maxPages * 80; // ~40 per page * 2 sources
+      const progress = Math.min(100, (stats.total / estimatedTotal) * 100);
+      progressFill.style.width = `${progress}%`;
+      progressText.textContent = `${Math.round(progress)}%`;
+    }
+
+    function addPropertyCard(property) {
+      const card = document.createElement('div');
+      card.className = 'property-card';
+
+      const imageUrl = property.images && property.images[0] 
+        ? property.images[0] 
+        : 'https://via.placeholder.com/300x200?text=No+Image';
+
+      card.innerHTML = `
+        <img class="property-image" src="${imageUrl}" alt="${property.title}" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
+        <div class="property-content">
+          <span class="source-badge badge-${property.source}">${property.source.toUpperCase()}</span>
+          <div class="property-title">${property.title}</div>
+          ${property.price ? `<div class="property-price">${property.price.toLocaleString('pl-PL')} zł</div>` : ''}
+          <div class="property-details">
+            ${property.area ? `<span>📐 ${property.area}m²</span>` : ''}
+            ${property.rooms ? `<span>🛏️ ${property.rooms} pok.</span>` : ''}
+          </div>
+          <div class="property-location">📍 ${property.city || 'Brak lokalizacji'}${property.district ? ', ' + property.district : ''}</div>
+        </div>
+      `;
+
+      card.addEventListener('click', () => {
+        window.open(property.external_url, '_blank');
+      });
+
+      resultsDiv.appendChild(card);
+    }
+
+    function addLog(type, message) {
+      const entry = document.createElement('div');
+      entry.className = `log-entry log-${type}`;
+      const timestamp = new Date().toLocaleTimeString('pl-PL');
+      entry.textContent = `[${timestamp}] ${message}`;
+      logDiv.appendChild(entry);
+      logDiv.scrollTop = logDiv.scrollHeight;
+    }
+  </script>
+</body>
+</html>

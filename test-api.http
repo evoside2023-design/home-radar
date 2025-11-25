@@ -1,0 +1,25 @@
+# Test API Autoryzacji DomRadar
+
+## 1. Test rejestracji
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@domradar.pl",
+  "password": "testpassword123",
+  "firstName": "Jan",
+  "lastName": "Kowalski"
+}
+
+## 2. Test logowania
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@domradar.pl",
+  "password": "testpassword123"
+}
+
+## 3. Test pobierania danych użytkownika (wymaga tokenu)
+GET http://localhost:5000/api/auth/me
+Authorization: Bearer YOUR_JWT_TOKEN_HERE

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DomRadar Test</title>
+</head>
+<body style="font-family:monospace;padding:20px;background:#1e1e1e;color:#d4d4d4;">
+<h1 style="color:#4ec9b0;">DomRadar Progressive Search</h1>
+<p>City: <input id="c" value="sopot"> Pages: <select id="p"><option>2</option><option selected>3</option></select></p>
+<button onclick="s()" style="padding:10px;background:#007acc;color:#fff;border:0;cursor:pointer;">Start</button>
+<div id="r" style="margin-top:20px;border:1px solid #444;padding:10px;"></div>
+<script>
+var es=null,st={t:0,o:0,od:0,tm:0};
+function s(){
+if(es)es.close();
+st={t:0,o:0,od:0,tm:Date.now()};
+document.getElementById('r').innerHTML='';
+l('Starting...');
+var c=document.getElementById('c').value,p=document.getElementById('p').value;
+es=new EventSource('http://localhost:5000/api/properties/search-stream?city='+c+'&maxPages='+p);
+es.onmessage=function(e){
+var d=JSON.parse(e.data);
+if(d.type==='start')l('Started: '+d.city);
+else if(d.type==='results'){
+st.t=d.totalSoFar;
+st[d.source]+=d.count;
+l(d.source.toUpperCase()+' p'+d.page+': +'+d.count+' (total:'+d.totalSoFar+')');
+}
+else if(d.type==='source_complete')l(d.source.toUpperCase()+' done: '+d.totalFromSource);
+else if(d.type==='complete'){l('COMPLETE! '+d.total+' properties');es.close();}
+else if(d.type==='error')l('ERROR: '+d.error);
+};
+es.onerror=function(){l('Connection error');es.close();};
+}
+function l(m){
+var d=document.getElementById('r'),e=document.createElement('div');
+e.textContent='['+new Date().toLocaleTimeString()+'] '+m;
+e.style.padding='3px';e.style.borderBottom='1px solid #333';
+d.appendChild(e);d.scrollTop=d.scrollHeight;
+}
+</script>
+</body>
+</html>

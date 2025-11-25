@@ -1,0 +1,692 @@
+[
+  {
+    "method": "GET",
+    "url": "https://ireland.apollo.olxcdn.com/v1/files/7ttjxivcyfcf2-PL/image;s=284x190;q=50",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ireland.apollo.olxcdn.com/v1/files/kor6j45d5syt2-PL/image;s=270x203;q=50",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ireland.apollo.olxcdn.com/v1/files/fst7vu5s3bwo1-PL/image;s=284x190;q=50",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ireland.apollo.olxcdn.com/v1/files/p0hs1kqzenn63-PL/image;s=270x203;q=50",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ireland.apollo.olxcdn.com/v1/files/0fbjyztolcbc-PL/image;s=284x190;q=50",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn.cookielaw.org/consent/fd887ea9-e284-43e0-b51c-fa55a6c7714e/fd887ea9-e284-43e0-b51c-fa55a6c7714e.json",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "accept": "application/json",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://eprivacy-storage.eu-sharedservices.olxcdn.com/data/olx/cookies.json",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://o433621.ingest.sentry.io/api/246021/envelope/?sentry_key=2d46ccc59cfd4c80adc3dd1a3c60cb20&sentry_version=7&sentry_client=sentry.javascript.browser%2F7.108.0",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "content-type": "text/plain;charset=UTF-8",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    },
+    "postData": "{\"sent_at\":\"2025-11-07T18:39:32.244Z\",\"sdk\":{\"name\":\"sentry.javascript.browser\",\"version\":\"7.108.0\"}}\n{\"type\":\"session\"}\n{\"sid\":\"c0072de4afc3494d91f46b95b6880c74\",\"init\":true,\"started\":\"2025-11-07T18:39:32.243Z\",\"timestamp\":\"2025-11-07T18:39:32.243Z\",\"status\":\"ok\",\"errors\":0,\"attrs\":{\"release\":\"8ecef047_8500742\",\"environment\":\"production\",\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"}}"
+  },
+  {
+    "method": "GET",
+    "url": "https://www.olx.pl/sfc/api/v1/categories/config?platform=desktop",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/nieruchomosci/sopot/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "olx-locale": "pl-PL",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "content-type": "application/json",
+      "accept": "*/*",
+      "cookie": "deviceGUID=0f182261-f6b7-43d4-bc98-852747d11c35"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn.cookielaw.org/consent/fd887ea9-e284-43e0-b51c-fa55a6c7714e/01973ff6-d543-79d8-ba3f-369e633e034c/pl.json",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn.cookielaw.org/vendorlist/iab2V2Data.json",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn.cookielaw.org/vendorlist/googleData.json",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn.jsdelivr.net/gh/prebid/currency-file@1/latest.json?date=20251107",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "content-type": "text/plain",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad-delivery.net/px.gif?ch=2&e=0.9983110888082052",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250&e=0.15365081021298832",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad-delivery.net/px.gif?ch=1&e=0.4236205465694032",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ab.dns-finder.com/meta/dns",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://www.olx.pl/api/v1/geo-encoder/cities/15983/",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/nieruchomosci/sopot/",
+      "x-device-id": "0f182261-f6b7-43d4-bc98-852747d11c35",
+      "accept-language": "pl",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "x-platform-type": "mobile-html5",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "version": "v1.19",
+      "x-fingerprint": "fbdc4f53959cdb4af47c1cffae5cc2e35c6324e638a283d8d11dae88fc3236ac3fef60c9cf99daeee8380ebb100f22a6faed307981c3a6ca4e1f7a2acddfea3321f2c817b2cc220c3fef60c9cf99daee3fef60c9cf99daee4e1f7a2acddfea33b497a357830277b800d2d70001a8f455308e012c59cf7bdd93ba89d2bc096e295c6324e638a283d85a1778be62509b00e8380ebb100f22a646b0e8d411fde435d6ace8ab009f683cf6e9813aa2a88b6b2aa98c6b03d84b2aaa6925b0558d723aa2dab357225d0511272ec8e83d084c3e29b755643a58ca1b6255da105753936400ab77cc9433c49756b16d11aecc8186311d0fc0132734b6807974a9f4b15c60852c9116963f0d12db374e5536c5226e613a320aee74b074dc7c102a6915d8d3f0e600f8bcbb93ea94b594999a8bac0095b7cc1b295c3a8d1fa7f0020eee7e44d5e3a2df978cc98281c4694103397b84007c3963de1362e7d8b7668586e5befd9a7cce06fbd6049945ec0f1d83431de81fa7f0020eee7e44226cc290de36d9b45a462f0216186820",
+      "x-client": "DESKTOP",
+      "accept": "*/*",
+      "cookie": "deviceGUID=0f182261-f6b7-43d4-bc98-852747d11c35"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://api.btloader.com/exd?tid=1LvvbP7Bfx-NUguMbQp-9a5f9de39f&sid=csDQZd9S-R2r9iWTL-9a5f9de39f&cv=2.1.167&upapi=true",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    },
+    "postData": "{\"websiteID\":\"6200694980739072\",\"orgID\":\"5162929816076288\",\"pageUrl\":\"https://www.olx.pl/nieruchomosci/sopot/\",\"extensionsData\":{\"signals\":{\"xAcceptableAdsHeader\":\"\"},\"trustedIframe\":{\"meta\":{\"loadStatus\":\"LOADED\",\"loadTime\":822},\"htmlSignalAttributes\":[]}},\"sentOnUnload\":false}"
+  },
+  {
+    "method": "GET",
+    "url": "https://ad-delivery.net/px.gif?ch=1&e=0.7098089441616339",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad-delivery.net/px.gif?ch=2&e=0.937996753491116",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250&e=0.9247436119137155",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn.cookielaw.org/scripttemplates/202507.1.0/assets/otFlat.json",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://cdn.cookielaw.org/scripttemplates/202507.1.0/assets/otCommonStyles.css",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "OPTIONS",
+    "url": "https://prompts.maze.co/api/widgets",
+    "headers": {
+      "accept": "*/*",
+      "access-control-request-headers": "content-type,x-api-key,x-maze-correlation-id,x-maze-snippet-src",
+      "access-control-request-method": "POST",
+      "origin": "https://www.olx.pl",
+      "sec-fetch-mode": "cors",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "referer": "https://www.olx.pl/"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://prompts.maze.co/api/widgets",
+    "headers": {
+      "x-maze-correlation-id": "1762540774198-8814.031833715399",
+      "sec-ch-ua-platform": "\"Windows\"",
+      "x-maze-snippet-src": "contextual-widget",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "x-api-key": "dcf42bf8-7cad-4554-9941-31490080dafb",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "accept": "application/json",
+      "content-type": "application/json",
+      "origin": "https://www.olx.pl"
+    },
+    "postData": "{}"
+  },
+  {
+    "method": "GET",
+    "url": "https://ep1.adtrafficquality.google/getconfig/sodar?sv=200&tid=afs&tv=1234567890&st=env&sjk=fv5z+yh1Rua5EhXzcVlK2w==&sde=1",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://eprivacy-storage.eu-sharedservices.olxcdn.com/data/olx/cookies.json",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad-delivery.net/px.gif?ch=2&e=0.7044729476286632",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250&e=0.7129766066045139",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad-delivery.net/px.gif?ch=1&e=0.3329098633919447",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ab.dns-finder.com/meta/dns",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://bam.nr-data.net/1/NRBR-4b04b28ea1f542d97be?a=66672666&sa=1&v=1.249.0&t=Unnamed%20Transaction&rst=8414&ck=0&s=485ae389cf4fc750&ref=https://www.olx.pl/nieruchomosci/sopot/&af=err,xhr,stn,ins,spa&be=1331&fe=6905&dc=1150&fsh=1&perf=%7B%22timing%22:%7B%22of%22:1762540768500,%22n%22:0,%22f%22:5,%22dn%22:23,%22dne%22:25,%22c%22:25,%22s%22:39,%22ce%22:69,%22rq%22:70,%22rp%22:1331,%22rpe%22:1420,%22di%22:2413,%22ds%22:2479,%22de%22:2481,%22dc%22:8210,%22l%22:8220,%22le%22:8236%7D,%22navigation%22:%7B%7D%7D&fp=2616&fcp=2616",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "content-type": "text/plain",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    },
+    "postData": "{\"ja\":{\"domErrorsMuted\":\"true\"}}"
+  },
+  {
+    "method": "GET",
+    "url": "https://laquesis.data.olxcdn.com/assign?sl=19a5f9dede6x2365ba96&cc=PL&ch=d&br=olx",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad-delivery.net/px.gif?ch=1&e=0.7507923365189453",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "OPTIONS",
+    "url": "https://sdk.fra-02.braze.eu/api/v3/data/",
+    "headers": {
+      "accept": "*/*",
+      "access-control-request-headers": "content-type,x-braze-api-key,x-braze-datarequest,x-braze-last-req-ms-ago,x-braze-req-attempt,x-braze-triggersrequest,x-requested-with",
+      "access-control-request-method": "POST",
+      "origin": "https://www.olx.pl",
+      "sec-fetch-mode": "cors",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "referer": "https://www.olx.pl/"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://sdk.fra-02.braze.eu/api/v3/data/",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "x-braze-triggersrequest": "true",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "accept-language": "en-US,en;q=0.9",
+      "x-braze-last-req-ms-ago": "7200000",
+      "x-braze-datarequest": "true",
+      "sec-ch-ua-mobile": "?0",
+      "x-braze-req-attempt": "1",
+      "x-requested-with": "XMLHttpRequest",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "content-type": "application/json",
+      "x-braze-api-key": "535b859e-9238-4873-a90e-4c76b15ce078",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    },
+    "postData": "{\"respond_with\":{\"triggers\":true,\"config\":{\"config_time\":0}},\"events\":[{\"name\":\"ss\",\"time\":1762540777.237,\"data\":{},\"session_id\":\"08e67759-40a7-6ced-8b28-a386014f9195\"}],\"device\":{\"browser\":\"Chrome\",\"browser_version\":\"142\",\"os_version\":\"Windows\",\"resolution\":\"1920x1080\",\"locale\":\"en-us\",\"time_zone\":\"Europe/Warsaw\",\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36\"},\"api_key\":\"535b859e-9238-4873-a90e-4c76b15ce078\",\"time\":1762540777,\"sdk_metadata\":[\"wcd\"],\"sdk_version\":\"5.7.0\",\"device_id\":\"98bd2a25-6f07-afed-11ca-4dccd1712f5f\"}"
+  },
+  {
+    "method": "GET",
+    "url": "https://ad-delivery.net/px.gif?ch=2&e=0.9362654905200617",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250&e=0.47042790367389986",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://bam.nr-data.net/ins/1/NRBR-4b04b28ea1f542d97be?a=66672666&sa=1&v=1.249.0&t=Unnamed%20Transaction&rst=9392&ck=0&s=485ae389cf4fc750&ref=https://www.olx.pl/nieruchomosci/sopot/",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "content-type": "text/plain",
+      "sec-ch-ua-mobile": "?0",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    },
+    "postData": "{\"ins\":[{\"timestamp\":1762540774709,\"timeSinceLoad\":6.209,\"browserWidth\":1905,\"browserHeight\":945,\"currentUrl\":\"https://www.olx.pl/nieruchomosci/sopot/\",\"pageUrl\":\"https://www.olx.pl/nieruchomosci/sopot/\",\"eventType\":\"PageAction\",\"domErrorsMuted\":\"true\",\"fmName\":\"payAndShip_loyalty_banner\",\"fmVersion\":\"2.0.0-2140a46767efc7b8c244559aa0a93603\",\"fmModule\":\"payAndShip_loyalty_banner: 2.0.0-2140a46767efc7b8c244559aa0a93603\",\"actionName\":\"UNIFIED_FEDERATED_MODULE\"}]}"
+  },
+  {
+    "method": "GET",
+    "url": "https://ad-delivery.net/px.gif?ch=2&e=0.9631501360683105",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250&e=0.5571639586507854",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad-delivery.net/px.gif?ch=2&e=0.9685254766413388",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250&e=0.11855797797563605",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad-delivery.net/px.gif?ch=2&e=0.9597133528571591",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://ad.doubleclick.net/favicon.ico?ad=300x250&ad_box_=1&adnet=1&showad=1&size=250x250&e=0.17910513569898068",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "https://api.btloader.com/country?o=5162929816076288",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    }
+  },
+  {
+    "method": "POST",
+    "url": "https://api.btloader.com/pv?nlf=false&tid=1LvvbP7Bfx-NUguMbQp-9a5f9de39f&sid=csDQZd9S-R2r9iWTL-9a5f9de39f&cv=2.1.167&upapi=true",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://www.olx.pl/",
+      "accept-language": "en-US,en;q=0.9",
+      "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \";Not A Brand\";v=\"99\"",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+      "sec-ch-ua-mobile": "?0",
+      "accept": "*/*",
+      "origin": "https://www.olx.pl"
+    },
+    "postData": "{\"w\":\"6200694980739072\",\"o\":\"5162929816076288\",\"widget\":false,\"vr\":{\"w\":1920,\"h\":945},\"pageURL\":\"https://www.olx.pl/nieruchomosci/sopot/\",\"spa_view_change\":false,\"un\":false,\"r\":false,\"br\":[{\"name\":\"ad-delivery-ab\",\"type\":\"url\",\"signals\":{\"ab\":false},\"meta\":{\"attempt\":7,\"durMs\":5066.400000035763,\"responseStatus\":0}},{\"name\":\"doubleclick-ab\",\"type\":\"url\",\"signals\":{\"ab\":false},\"meta\":{\"attempt\":7,\"durMs\":5156,\"responseStatus\":0}},{\"name\":\"bt-legacy-bait-element\",\"type\":\"element\",\"signals\":{\"ab\":false},\"meta\":{\"attempt\":14,\"durMs\":4803.599999964237}},{\"name\":\"ad-delivery-aa\",\"type\":\"url\",\"signals\":{\"aa\":true},\"meta\":{\"attempt\":2,\"durMs\":2746.2999999523163,\"responseStatus\":0}},{\"name\":\"ab-dns-finder-nlf\",\"type\":\"url\",\"signals\":{\"ab\":false},\"meta\":{\"responseStatus\":200}},{\"name\":\"element-aa-detection\",\"type\":\"element\",\"signals\":{\"aa\":false},\"meta\":{\"m5c2t8q\":{\"isHidden\":false,\"attempt\":14,\"durMs\":4803.199999988079},\"v8n6y4p\":{\"isHidden\":false,\"attempt\":14,\"durMs\":4808.899999976158},\"w3p9m6d\":{\"isHidden\":false,\"attempt\":14,\"durMs\":4808.699999988079},\"k2y8f7x\":{\"isHidden\":false,\"attempt\":14,\"durMs\":4808.399999976158},\"q7d5z1l\":{\"isHidden\":false,\"attempt\":14,\"durMs\":4807.900000035763},\"x9a7b3k\":{\"isHidden\":false,\"attempt\":14,\"durMs\":4807.699999988079}}}],\"pm\":false}"
+  }
+]

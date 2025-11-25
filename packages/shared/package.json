@@ -1,0 +1,11 @@
+{
+  "name": "@domradar/shared",
+  "version": "1.0.0",
+  "description": "Shared types and utilities for DomRadar",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
