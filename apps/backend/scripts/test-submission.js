@@ -1,4 +1,4 @@
-const PropertySubmissionService = require('../services/propertySubmissionService');
+const PropertySubmissionService = require('../src/services/propertySubmissionService');
 
 /**
  * Test Property Submission Service

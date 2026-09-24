@@ -3,9 +3,9 @@
  * Użycie: node src/test-scraper.js
  */
 
-require('dotenv').config({ path: '../../.env' });
-const { testConnection } = require('./config/database');
-const scraperService = require('./services/scraperService');
+require('../src/config/env');
+const { testConnection } = require('../src/config/database');
+const scraperService = require('../src/services/scraperService');
 
 async function testScraper() {
   console.log('🧪 Test Scrapera DomRadar\n');

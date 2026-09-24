@@ -3,7 +3,7 @@
  * Symulacja: User wpisuje "mieszkanie Sopot"
  */
 
-const PropertyScraper = require('./services/propertyScraper');
+const PropertyScraper = require('../src/services/propertyScraper');
 
 async function testUserQuery() {
   console.log('⏱️  TEST: Jak długo user będzie czekał na wyniki?');

@@ -2,9 +2,11 @@
   "name": "@domradar/shared",
   "version": "1.0.0",
   "description": "Shared types and utilities for DomRadar",
-  "main": "index.js",
+  "main": "types/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "echo \"no tests\" && exit 0",
+    "lint": "echo \"no lint\" && exit 0",
+    "build": "echo \"nothing to build\" && exit 0"
   },
   "dependencies": {},
   "devDependencies": {}

@@ -124,8 +124,8 @@ class PropertyScraper {
   async scrapeOtodom(city = 'warszawa', page = 1, onResult = null) {
     await this.initialize();
 
-    // Nowy URL format Otodom
-    const url = `https://www.otodom.pl/pl/oferty/sprzedaz/mieszkanie/cala-polska?page=${page}`;
+    // Otodom: URL dla miasta wymaga slug województwa; dla nieznanych miast fallback na całą Polskę
+    const url = this.buildOtodomUrl(city, page);
     console.log(`🔍 Otodom: ${url}`);
 
     try {
@@ -168,6 +168,41 @@ class PropertyScraper {
       console.error('❌ Otodom scraping error:', error.message);
       throw error;
     }
+  }
+
+  /**
+   * Buduje URL listingu Otodom dla miasta.
+   * Otodom używa ścieżki /{wojewodztwo}/{powiat}/{gmina}/{miasto}; dla miast na prawach
+   * powiatu segmenty się powtarzają. Dla miast spoza mapy: cała Polska + parametr wyszukiwania.
+   */
+  buildOtodomUrl(city = 'warszawa', page = 1) {
+    const slug = String(city).trim().toLowerCase();
+    const base = 'https://www.otodom.pl/pl/oferty/sprzedaz/mieszkanie';
+    const known = {
+      warszawa: 'mazowieckie/warszawa/warszawa/warszawa',
+      krakow: 'malopolskie/krakow/krakow/krakow',
+      wroclaw: 'dolnoslaskie/wroclaw/wroclaw/wroclaw',
+      poznan: 'wielkopolskie/poznan/poznan/poznan',
+      gdansk: 'pomorskie/gdansk/gdansk/gdansk',
+      gdynia: 'pomorskie/gdynia/gdynia/gdynia',
+      sopot: 'pomorskie/sopot/sopot/sopot',
+      lodz: 'lodzkie/lodz/lodz/lodz',
+      szczecin: 'zachodniopomorskie/szczecin/szczecin/szczecin',
+      lublin: 'lubelskie/lublin/lublin/lublin',
+      katowice: 'slaskie/katowice/katowice/katowice',
+      bydgoszcz: 'kujawsko--pomorskie/bydgoszcz/bydgoszcz/bydgoszcz',
+      bialystok: 'podlaskie/bialystok/bialystok/bialystok',
+      rzeszow: 'podkarpackie/rzeszow/rzeszow/rzeszow',
+      torun: 'kujawsko--pomorskie/torun/torun/torun',
+      olsztyn: 'warminsko--mazurskie/olsztyn/olsztyn/olsztyn',
+      kielce: 'swietokrzyskie/kielce/kielce/kielce',
+      opole: 'opolskie/opole/opole/opole'
+    };
+
+    if (known[slug]) {
+      return `${base}/${known[slug]}?page=${page}`;
+    }
+    return `${base}/cala-polska?locations=${encodeURIComponent(slug)}&page=${page}`;
   }
 
   /**
@@ -346,9 +381,8 @@ class PropertyScraper {
     const location = this.parseLocation(locationText);
 
     // Obrazek
-    const imageUrl = $parent.find('img').first().attr('src') || 
-                     $parent.find('img').first().attr('data-src') ||
-                     $el.find('img').first().attr('src');
+    const $img = $parent.find('img').first();
+    const imageUrl = $img.attr('src') || $img.attr('data-src') || $el.find('img').first().attr('src');
 
     return {
       source: 'otodom',

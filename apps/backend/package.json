@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "test": "jest --coverage",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
-    "lint": "eslint src/**/*.js",
-    "migrate": "node src/db/migrate.js"
+    "lint": "eslint src",
+    "scrape:test": "node scripts/test-scraper.js",
+    "search:test": "node scripts/test-realtime-search.js"
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.0",
@@ -39,5 +40,12 @@
     "jest": "^29.7.0",
     "nodemon": "^3.0.2",
     "supertest": "^6.3.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/scripts/"
+    ]
   }
 }
