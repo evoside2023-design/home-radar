@@ -381,9 +381,8 @@ class PropertyScraper {
     const location = this.parseLocation(locationText);
 
     // Obrazek
-    const imageUrl = $parent.find('img').first().attr('src') || 
-                     $parent.find('img').first().attr('data-src') ||
-                     $el.find('img').first().attr('src');
+    const $img = $parent.find('img').first();
+    const imageUrl = $img.attr('src') || $img.attr('data-src') || $el.find('img').first().attr('src');
 
     return {
       source: 'otodom',

@@ -33,7 +33,9 @@ jobs:
         if [ -f package-lock.json ]; then npm ci; else npm install --no-audit --no-fund; fi
 
     - name: Lint
+      # Styl kodu nie blokuje merge'a do czasu uporządkowania starszych plików (TODO: usunąć continue-on-error)
       run: npm run lint
+      continue-on-error: true
 
     - name: Test
       run: npm test

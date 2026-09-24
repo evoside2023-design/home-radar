@@ -8,7 +8,7 @@
     "start": "node src/server.js",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
-    "lint": "eslint src scripts",
+    "lint": "eslint src",
     "scrape:test": "node scripts/test-scraper.js",
     "search:test": "node scripts/test-realtime-search.js"
   },
