@@ -1,28 +1,30 @@
 const jwt = require('jsonwebtoken');
 
-const authMiddleware = async (req, res, next) => {
+const extractToken = (req) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) return null;
+  return authHeader.substring(7); // Usuń 'Bearer '
+};
+
+const decodeToken = (token) => {
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  return {
+    id: decoded.id,
+    email: decoded.email,
+    isPremium: decoded.isPremium
+  };
+};
+
+/**
+ * Wymaga ważnego tokenu JWT. Ustawia req.user.
+ */
+const authMiddleware = (req, res, next) => {
   try {
-    // Pobierz token z headera Authorization
-    const authHeader = req.headers.authorization;
-    
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return res.status(401).json({ 
-        error: 'Brak tokenu autoryzacji' 
-      });
+    const token = extractToken(req);
+    if (!token) {
+      return res.status(401).json({ error: 'Brak tokenu autoryzacji' });
     }
-
-    const token = authHeader.substring(7); // Usuń 'Bearer '
-
-    // Weryfikuj token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    
-    // Dodaj dane użytkownika do requesta
-    req.user = {
-      id: decoded.id,
-      email: decoded.email,
-      isPremium: decoded.isPremium
-    };
-
+    req.user = decodeToken(token);
     next();
   } catch (error) {
     if (error.name === 'JsonWebTokenError') {
@@ -35,4 +37,22 @@ const authMiddleware = async (req, res, next) => {
   }
 };
 
+/**
+ * Token opcjonalny: jeśli jest i jest poprawny – ustawia req.user,
+ * jeśli go brak lub jest błędny – przepuszcza jako gościa.
+ */
+const optionalAuth = (req, res, next) => {
+  const token = extractToken(req);
+  if (token) {
+    try {
+      req.user = decodeToken(token);
+    } catch (error) {
+      req.user = null;
+    }
+  }
+  next();
+};
+
 module.exports = authMiddleware;
+module.exports.authMiddleware = authMiddleware;
+module.exports.optionalAuth = optionalAuth;

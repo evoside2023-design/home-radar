@@ -24,8 +24,8 @@
 ### 1. Klonowanie repozytorium
 
 ```bash
-git clone https://github.com/your-username/domradar.git
-cd domradar
+git clone https://github.com/PawmelMeller/home-radar.git
+cd home-radar
 ```
 
 ### 2. Instalacja zależności
@@ -42,6 +42,9 @@ Skopiuj `.env.example` do `.env` i uzupełnij wartości:
 cp .env.example .env
 ```
 
+Wymagane: `JWT_SECRET` (serwer nie wystartuje bez niego). Schemat bazy jest ładowany
+automatycznie przy pierwszym starcie kontenera Postgres z `db/schema.sql`.
+
 ### 4. Uruchomienie bazy danych (Docker)
 
 ```bash
@@ -50,13 +53,7 @@ docker-compose up -d
 
 Lub zainstaluj PostgreSQL + PostGIS lokalnie.
 
-### 5. Migracja bazy danych
-
-```bash
-npm run migrate --workspace=apps/backend
-```
-
-### 6. Uruchomienie aplikacji
+### 5. Uruchomienie aplikacji
 
 **Tryb deweloperski (frontend + backend jednocześnie):**
 
@@ -79,41 +76,44 @@ Aplikacja będzie dostępna pod adresem: **http://localhost:3000**
 ## 📁 Struktura projektu
 
 ```
-domradar/
+home-radar/
 ├── apps/
-│   ├── frontend/          # Aplikacja React
-│   │   ├── src/
-│   │   │   ├── components/
-│   │   │   ├── pages/
-│   │   │   ├── services/
-│   │   │   ├── hooks/
-│   │   │   ├── context/
-│   │   │   └── utils/
-│   │   └── package.json
-│   │
-│   └── backend/           # API Node.js/Express
+│   ├── frontend/              # Aplikacja React (CRA) – na razie placeholder
+│   └── backend/               # API Node.js/Express
 │       ├── src/
+│       │   ├── app.js         # Konfiguracja Express (bez listen – używana w testach)
+│       │   ├── server.js      # Start serwera
+│       │   ├── config/        # env.js (walidacja zmiennych), database.js (Sequelize)
 │       │   ├── controllers/
-│       │   ├── models/
-│       │   ├── routes/
-│       │   ├── middleware/
-│       │   ├── services/
-│       │   └── utils/
-│       └── package.json
-│
-├── packages/
-│   └── shared/            # Współdzielone typy i utility
-│       ├── types/
-│       └── utils/
-│
-├── db/
-│   └── schema.sql         # Skrypty inicjalizacyjne bazy danych
-│
+│       │   ├── middleware/    # auth.js (JWT: authMiddleware, optionalAuth)
+│       │   ├── models/        # User, Property (+ index.js)
+│       │   ├── routes/        # auth, scraper, properties
+│       │   ├── services/      # scraper, realTimeScraper, propertySubmissionService...
+│       │   ├── public/        # Statyczne strony demo (serwowane pod /demo)
+│       │   └── __tests__/     # Testy Jest + supertest
+│       └── scripts/           # Ręczne skrypty testowe/debugowe (nie są częścią API)
+├── packages/shared/           # Współdzielone stałe/typy
+├── db/schema.sql              # Schemat bazy (PostgreSQL + PostGIS)
+├── docs/                      # Notatki techniczne (OLX API, scraping, zmiany architektury)
 ├── docker-compose.yml
-├── .gitignore
 ├── .env.example
 └── README.md
 ```
+
+## 🔌 API
+
+| Metoda | Ścieżka | Opis | Auth |
+|---|---|---|---|
+| GET | `/health` | Health check | – |
+| POST | `/api/auth/register` | Rejestracja | – |
+| POST | `/api/auth/login` | Logowanie (zwraca JWT) | – |
+| GET | `/api/auth/me` | Dane zalogowanego użytkownika | Bearer |
+| GET | `/api/properties/search-stream?city=gdansk&maxPages=2` | Wyszukiwanie na żywo (SSE) | – |
+| GET | `/api/properties` | Lista z bazy (filtry: city, minPrice, maxPrice, rooms…) | – |
+| GET | `/api/properties/:id` | Szczegóły | – |
+| POST | `/api/properties/submit` | Dodaj ogłoszenie przez link | opcjonalny |
+| POST | `/api/properties/submit-batch` | Dodaj wiele linków | Bearer |
+| POST | `/api/scraper/run` | Ręczne uruchomienie scrapera | Bearer |
 
 ## 🧪 Testowanie
 
@@ -126,10 +126,9 @@ npm run test --workspace=apps/backend
 
 # Tylko frontend
 npm run test --workspace=apps/frontend
-
-# Z pokryciem kodu
-npm run test:coverage
 ```
+
+Backend testuje się bez bazy danych (smoke testy endpointów, walidacja, JWT).
 
 ## 🏗️ Build produkcyjny
 

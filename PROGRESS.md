@@ -100,4 +100,14 @@
 
 ---
 
-**Ostatnia aktualizacja:** 2025-11-07 (Zadanie #4 ukończone - Official API implementation)
+**Ostatnia aktualizacja:** 2026-09-24 – porządki po code review:
+- naprawiono `routes/properties.js` (brakujące importy, prawdziwe middleware JWT), włączono trasy `/api/auth` i `/api/scraper`
+- usunięto publiczne serwowanie katalogu `src/` (`/test` → `/demo` tylko dla `src/public/`)
+- fail-fast na brak `JWT_SECRET`; brak domyślnego hasła DB na produkcji
+- SSE: przerywanie scrapowania po rozłączeniu klienta, limit `maxPages` ≤ 5
+- Otodom: URL uwzględnia miasto (wcześniej zawsze „cała Polska")
+- CI: nowy workflow, testy smoke (Jest + supertest), `package-lock.json` przestał być ignorowany
+- skrypty debugowe → `apps/backend/scripts/`, dokumentacja → `docs/`, usunięte artefakty debugowe
+
+⚠️ Stan faktyczny: backend działa w trybie **web scrapingu na żywo** (nie oficjalnego OLX API) – szczegóły w `docs/ARCHITECTURE_CHANGE.md`.
+Notatka produktowa: logowanie ma być jednym kliknięciem „Zaloguj z Google" (do zrobienia – obecnie tylko email+hasło).

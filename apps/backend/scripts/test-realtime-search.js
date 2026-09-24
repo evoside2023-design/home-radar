@@ -3,7 +3,7 @@
  * Symulacja: User wpisuje "Sopot" → Pobierz WSZYSTKIE ogłoszenia
  */
 
-const RealTimeScraper = require('./services/realTimeScraper');
+const RealTimeScraper = require('../src/services/realTimeScraper');
 
 async function testRealTimeSearch() {
   console.log('🚀 TEST: Real-Time Property Search\n');

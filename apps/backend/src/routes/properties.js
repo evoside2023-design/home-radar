@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const RealTimeScraper = require('../services/realTimeScraper');
-// const PropertySubmissionService = require('../services/propertySubmissionService');
-// const { authenticateToken } = require('../middleware/auth');
-const authenticateToken = (req, res, next) => next(); // Dummy middleware for MVP
-// const { Property } = require('../models');
-// const { Op } = require('sequelize');
+const PropertySubmissionService = require('../services/propertySubmissionService');
+const { authMiddleware, optionalAuth } = require('../middleware/auth');
+const { Property } = require('../models');
+const { Op } = require('sequelize');
 
-// const submissionService = new PropertySubmissionService();
+const submissionService = new PropertySubmissionService();
+
+const MAX_PAGES = 5;
 
 /**
  * GET /api/properties/search-stream
@@ -15,33 +16,41 @@ const authenticateToken = (req, res, next) => next(); // Dummy middleware for MV
  * Results stream as they arrive from scrapers
  */
 router.get('/search-stream', async (req, res) => {
-  const { city, maxPages = 2 } = req.query;  // Reduced default from 5 to 2 pages
+  const city = String(req.query.city || '').trim().toLowerCase();
+  const maxPages = Math.min(Math.max(parseInt(req.query.maxPages, 10) || 2, 1), MAX_PAGES);
 
-  if (!city) {
-    return res.status(400).json({ error: 'City parameter required' });
+  if (!city || !/^[a-z0-9-]+$/.test(city)) {
+    return res.status(400).json({ error: 'Parametr city jest wymagany (np. warszawa, gdansk)' });
   }
 
-  // Set headers for SSE
+  // Nagłówki SSE (CORS obsługuje globalny middleware cors())
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
   res.setHeader('Connection', 'keep-alive');
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.flushHeaders();
 
   console.log(`🔍 Progressive search started: ${city}`);
 
   const scraper = new RealTimeScraper();
+
+  // Gdy klient zamknie połączenie – przerywamy scrapowanie
+  let aborted = false;
+  req.on('close', () => {
+    aborted = true;
+  });
+
+  const send = (payload) => {
+    if (!aborted && !res.writableEnded) {
+      res.write(`data: ${JSON.stringify(payload)}\n\n`);
+    }
+  };
 
   try {
     await scraper.initialize();
 
     let totalResults = 0;
 
-    // Send initial event
-    res.write(`data: ${JSON.stringify({ 
-      type: 'start', 
-      city, 
-      maxPages: parseInt(maxPages) 
-    })}\n\n`);
+    send({ type: 'start', city, maxPages });
 
     // Scrape page by page with streaming
     const scrapeWithProgress = async (source) => {
@@ -49,7 +58,7 @@ router.get('/search-stream', async (req, res) => {
       let page = 1;
       let consecutiveEmpty = 0;
 
-      while (page <= parseInt(maxPages)) {
+      while (page <= maxPages && !aborted) {
         try {
           const pageResults = [];
           
@@ -59,13 +68,13 @@ router.get('/search-stream', async (req, res) => {
             totalResults++;
             
             // Stream individual property immediately
-            res.write(`data: ${JSON.stringify({
+            send({
               type: 'property',
               source,
               page,
               property,
               totalSoFar: totalResults
-            })}\n\n`);
+            });
           };
 
           // Scrape page with progressive callback
@@ -83,25 +92,25 @@ router.get('/search-stream', async (req, res) => {
             results.push(...pageResults);
 
             // Send page complete event
-            res.write(`data: ${JSON.stringify({
+            send({
               type: 'page_complete',
               source,
               page,
               count: pageResults.length,
               totalSoFar: totalResults
-            })}\n\n`);
+            });
           }
 
           page++;
           // NO delay between pages for maximum speed
 
         } catch (error) {
-          res.write(`data: ${JSON.stringify({
+          send({
             type: 'error',
             source,
             page,
             error: error.message
-          })}\n\n`);
+          });
           consecutiveEmpty++;
           if (consecutiveEmpty >= 2) break;
           page++;
@@ -109,11 +118,11 @@ router.get('/search-stream', async (req, res) => {
       }
 
       // Send completion event for this source
-      res.write(`data: ${JSON.stringify({
+      send({
         type: 'source_complete',
         source,
         totalFromSource: results.length
-      })}\n\n`);
+      });
 
       return results;
     };
@@ -125,23 +134,20 @@ router.get('/search-stream', async (req, res) => {
     ]);
 
     // Send final completion event
-    res.write(`data: ${JSON.stringify({
+    send({
       type: 'complete',
-      total: totalResults
-    })}\n\n`);
-
-    res.end();
-    await scraper.close();
+      total: totalResults,
+      aborted
+    });
 
   } catch (error) {
-    res.write(`data: ${JSON.stringify({
+    send({
       type: 'fatal_error',
       error: error.message
-    })}\n\n`);
-    res.end();
-    if (scraper.scraper) {
-      await scraper.close();
-    }
+    });
+  } finally {
+    if (!res.writableEnded) res.end();
+    await scraper.close();
   }
 });
 
@@ -154,7 +160,7 @@ router.get('/search-stream', async (req, res) => {
  *   "url": "https://www.olx.pl/d/oferta/mieszkanie-2-pokoje-warszawa-mokotow-ID123456.html"
  * }
  */
-router.post('/submit', async (req, res) => {
+router.post('/submit', optionalAuth, async (req, res) => {
   try {
     const { url } = req.body;
     
@@ -197,7 +203,7 @@ router.post('/submit', async (req, res) => {
  *   "urls": ["url1", "url2", "url3"]
  * }
  */
-router.post('/submit-batch', authenticateToken, async (req, res) => {
+router.post('/submit-batch', authMiddleware, async (req, res) => {
   try {
     const { urls } = req.body;
     
@@ -240,7 +246,7 @@ router.post('/submit-batch', authenticateToken, async (req, res) => {
  * GET /api/properties/submission-stats
  * Statystyki submissionów (dla zalogowanego użytkownika)
  */
-router.get('/submission-stats', authenticateToken, async (req, res) => {
+router.get('/submission-stats', authMiddleware, async (req, res) => {
   try {
     const userId = req.user.id;
     const stats = await submissionService.getSubmissionStats(userId);
@@ -334,7 +340,7 @@ router.get('/', async (req, res) => {
  * GET /api/properties/:id
  * Szczegóły pojedynczego property
  */
-router.get('/:id', async (req, res) => {
+router.get('/:id(\d+)', async (req, res) => {
   try {
     const { id } = req.params;
     

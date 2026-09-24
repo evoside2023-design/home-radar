@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI
 
 on:
   push:
@@ -6,32 +6,41 @@ on:
   pull_request:
     branches: [ main, develop ]
 
+env:
+  # Testy nie potrzebują Chromium – oszczędza ~150 MB i minutę na job
+  PUPPETEER_SKIP_DOWNLOAD: 'true'
+  CI: 'true'
+
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     strategy:
       matrix:
         node-version: [18.x, 20.x]
-    
+
     steps:
-    - uses: actions/checkout@v3
-    
+    - uses: actions/checkout@v4
+
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    
+
     - name: Install dependencies
-      run: npm ci
-    
-    - name: Run linter
+      # npm ci wymaga package-lock.json; do czasu jego dodania używamy npm install
+      run: |
+        if [ -f package-lock.json ]; then npm ci; else npm install --no-audit --no-fund; fi
+
+    - name: Lint
       run: npm run lint
-    
-    - name: Run tests
+
+    - name: Test
       run: npm test
-    
+      env:
+        NODE_ENV: test
+        JWT_SECRET: ci-test-secret
+
     - name: Build
       run: npm run build
 
@@ -39,10 +48,8 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/develop'
-    
     steps:
-    - uses: actions/checkout@v3
-    
+    - uses: actions/checkout@v4
     - name: Deploy to Staging
       run: echo "Deploy to staging environment"
       # Add your staging deployment commands here
@@ -51,10 +58,8 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
-    
     steps:
-    - uses: actions/checkout@v3
-    
+    - uses: actions/checkout@v4
     - name: Deploy to Production
       run: echo "Deploy to production environment"
       # Add your production deployment commands here

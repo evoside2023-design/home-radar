@@ -1,10 +1,13 @@
 const { Sequelize } = require('sequelize');
 
-// Konfiguracja połączenia z bazą danych
+const isProduction = process.env.NODE_ENV === 'production';
+
+// Konfiguracja połączenia z bazą danych.
+// Domyślne hasło (zgodne z docker-compose.yml) tylko poza produkcją.
 const sequelize = new Sequelize(
   process.env.DB_NAME || 'domradar',
   process.env.DB_USER || 'postgres',
-  process.env.DB_PASSWORD || 'postgres123',
+  process.env.DB_PASSWORD || (isProduction ? undefined : 'postgres123'),
   {
     host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 5432,
@@ -25,19 +28,18 @@ const testConnection = async () => {
     await sequelize.authenticate();
     console.log('✅ Połączenie z bazą danych zostało ustanowione.');
     
-    // Załaduj modele
-    const User = require('../models/User');
-    const Property = require('../models/Property');
-    
+    // Załaduj modele (rejestracja w instancji sequelize)
+    require('../models');
+
     // Synchronizuj modele z bazą (tylko w development)
     if (process.env.NODE_ENV === 'development') {
       await sequelize.sync({ alter: false }); // alter: true aktualizowałoby schemat
       console.log('✅ Modele zsynchronizowane z bazą danych.');
     }
-    
+
     return true;
   } catch (error) {
-    console.warn('⚠️ Baza danych niedostępna - serwer działa bez DB');
+    console.warn(`⚠️ Baza danych niedostępna (${error.message}) - serwer działa bez DB`);
     return false;
   }
 };

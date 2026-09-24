@@ -1,4 +1,4 @@
-const PropertyScraper = require('./services/propertyScraper');
+const PropertyScraper = require('../src/services/propertyScraper');
 
 /**
  * Test Web Scraper (Puppeteer)
